@@ -1,2 +1,0 @@
-nodemon client.js
-cmd
