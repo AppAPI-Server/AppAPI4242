@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Войти | AppApi</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+
+		<link rel="stylesheet" href="/public/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/public/css/font-awesome.css" type="text/css">
+
+</head>
+<body>
+	<header>
+		<h2><a href="/">AppApi</a></h2>
+		<nav>
+			<li><a href="/">Главная</a></li>
+		</nav>
+	</header>
+	<section class="hero">
+		<div class="background-image" style="background-image: url(/public/img/hero.jpg);"></div>
+
+<div class="container" id="kur">
+</br>
+	</br>
+	<form>
+		<div class="dws-input">
+			<input type="text" id="last_name" placeholder="Введите логин">
+		</div>
+		<input class="dws-submit" type="submit" onclick="genAuth();" value="Сгенерировать сессию"><br />
+	</form>
+</div>
+		<script type="text/javascript">
+		function get_cookie ( cookie_name )
+{
+  var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+  if ( results )
+    return ( unescape ( results[2] ) );
+  else
+    return null;
+}
+
+function genAuth() {
+var login = document.getElementById("last_name").value;
+var session = Math.round(Math.random() * 1000000 * 2);
+document.cookie = "name=" + login;
+document.cookie = "uid=" + session;
+console.log(session + ' ' + login);
+
+var uid = get_cookie('uid');
+if (session == uid) {
+  alert('Готово, Вы авторизованы! Перейдите на свою страницу аккаунта ʕᵔᴥᵔ ʔ');
+}
+ else {
+  alert( 'Ошибка авторизации!' );
+}
+};
+};
+</script>		
+</section>
+</body>
+</html>
